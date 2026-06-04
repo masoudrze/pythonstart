@@ -1,30 +1,31 @@
 import random
 round=random.randint(0,1)
-i=1
-while i <= 21:
+i=0
+
+def countNum(i,step):
+    j=1
+    while j <= step:
+        if i==21:
+            break
+        i += 1
+        j += 1
+        print(f"-{i}-")
+    return i
+
+while i < 21:
     if round==0:
         print("Computer turn:\n")
-        j=1
-        num=random.randint(1,3)
-        while j <= num:
-            print(f"-{i}-")
-            i += 1
-            j += 1
+        step=random.randint(1,3)
+        i=countNum(i,step)
         round=1
     else:
         print("your turn:\n")
-        j=1
-        num=int(input("Enter steps count[1-3]:\n"))
-        if num > 3:
-            num=int(input("Hey idiot!!!,Enter steps count[1-3]:\n"))
-        else:
-            while j <= num:
-                print(f"-{i}-")
-                i += 1
-                j += 1
-            round=0
+        step=int(input("Enter steps count[1-3]:\n"))
+        i=countNum(i,step)
+        round=0
 if round==0:
-    print("Congratulation, you won the game")
+    print("you lost the game")
 else:
-    print("you lost the game idiot!!")
+    print("you won the game")
+
 
