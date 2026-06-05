@@ -12,6 +12,14 @@ def countNum(i,step):
         print(f"-{i}-")
     return i
 
+def getStep(min,max):
+    step=int(input(f"Enter steps count[{min}-{max}]:\n"))
+    while step < min or step > max:
+        step=int(input(f"Enter steps count[{min}-{max}]:\n"))
+    return step
+
+
+
 while i < 21:
     if round==0:
         print("Computer turn:\n")
@@ -20,7 +28,7 @@ while i < 21:
         round=1
     else:
         print("your turn:\n")
-        step=int(input("Enter steps count[1-3]:\n"))
+        step=getStep(1,3)
         i=countNum(i,step)
         round=0
 if round==0:
